@@ -5,13 +5,26 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 require("dotenv").config();
 const { readdirSync } = require("fs");
-const connectDB = require("./config/mongodb");
+
+const mongoConnectDB = require("./config/connect_mongodb");
+// const mysqlConnectDB = require("./config/connect_mysqldb");
+// const sequelizeConnectDB = require("./config/connect_sequelize");
+
+
+// mysqlConnectDB.query("show tables", (eer, result) => {
+//   console.log(result);
+// });
 
 // app
 const app = express();
 
 // connect database
-connectDB();
+// sequelizeConnectDB.sequeliz.sync().then(() =>{
+//   console.log('Sequelize Connect Database Success!!')
+// });
+
+mongoConnectDB();
+
 
 // middleware
 app.use(morgan("dev"));

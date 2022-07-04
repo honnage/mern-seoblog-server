@@ -15,6 +15,11 @@ const mysqlConnectDB = require("./config/connect_mysqldb");
 //   console.log(result);
 // });
 
+
+// routes
+const blogRoutes = require('./routes/blog')
+const authRoutes = require('./routes/auth')
+
 // app
 const app = express();
 
@@ -33,6 +38,12 @@ app.use(bodyParser.json({ limit: "2mb" }));
 app.use(cors());
 
 app.use(cookieParser());
+
+
+// routes middlewares
+app.use('/api', blogRoutes)
+app.use('/api', authRoutes)
+
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => {

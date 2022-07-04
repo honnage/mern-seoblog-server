@@ -6,8 +6,8 @@ const cors = require("cors");
 require("dotenv").config();
 const { readdirSync } = require("fs");
 
-const mongoConnectDB = require("./config/connect_mongodb");
-// const mysqlConnectDB = require("./config/connect_mysqldb");
+// const mongoConnectDB = require("./config/connect_mongodb");
+const mysqlConnectDB = require("./config/connect_mysqldb");
 // const sequelizeConnectDB = require("./config/connect_sequelize");
 
 
@@ -23,7 +23,8 @@ const app = express();
 //   console.log('Sequelize Connect Database Success!!')
 // });
 
-mongoConnectDB();
+// mongoConnectDB();
+
 
 
 // middleware
